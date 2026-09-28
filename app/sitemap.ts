@@ -1,11 +1,2 @@
-import type { MetadataRoute } from 'next';
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://martinssecurity.ca';
-  return ['/', '/services', '/about', '/careers', '/contact'].map((path) => ({
-    url: `${base}${path === '/' ? '' : path}`,
-    lastModified: new Date(),
-    changeFrequency: path === '/' ? 'weekly' : 'monthly',
-    priority: path === '/' ? 1 : 0.8,
-  }));
-}
+import type { MetadataRoute } from "next";
+export default function sitemap(): MetadataRoute.Sitemap { const base=process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"; return ["","/services","/about","/careers","/contact"].map((path)=>({url:`${base}${path}`,lastModified:new Date()})); }

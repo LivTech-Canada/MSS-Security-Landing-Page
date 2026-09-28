@@ -1,55 +1,27 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const links = [
-  ['/', 'Home'],
-  ['/services', 'Services'],
-  ['/about', 'About Us'],
-  ['/careers', 'Careers'],
-  ['/contact', 'Contact'],
+  ["/", "Home"], ["/services", "Services"], ["/about", "About Us"], ["/careers", "Careers"], ["/contact", "Contact"],
 ] as const;
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  return (
-    <>
-      <div className="utility">
-        <div className="container">
-          <div className="utility-left">
-            <span>◆ Edmonton, Alberta</span><span className="dot" />
-            <a href="mailto:info@martinssecurity.ca">info@martinssecurity.ca</a><span className="dot" />
-            <span>24/7 Coverage Options</span>
-          </div>
-          <div className="utility-right"><span className="gold">Professional Security • Mobile Patrol • Site Protection</span></div>
+  return <>
+    <div className="topbar"><div className="container"><div><strong>Edmonton, Alberta</strong> • Premium security coverage for people, property and operations</div><div>Professional image • Tailored service programs • Visible deterrence</div></div></div>
+    <header className="header"><div className="container">
+      <Link className="brand" href="/" onClick={() => setOpen(false)}><img src="/images/logo.png" alt="Martin's Security Services logo" /><div><b>Martin&apos;s Security Services</b><span>Protection • Professionalism • Presence</span></div></Link>
+      <nav className="nav">
+        <div className={`nav-links${open ? " open" : ""}`}>
+          {links.map(([href,label]) => <Link key={href} className={pathname === href ? "active" : ""} href={href} onClick={() => setOpen(false)}>{label}</Link>)}
         </div>
-      </div>
-      <header className="site-header">
-        <div className="container nav">
-          <Link className="brand" href="/" prefetch aria-label="Martin's Security Solutions home" onClick={() => setOpen(false)}>
-            <Image src="/images/mss-logo.png" alt="Martin's Security Solutions logo" width={62} height={62} priority />
-            <span className="brand-copy"><strong>MARTIN&apos;S</strong><span>Security Solutions</span></span>
-          </Link>
-          <nav className={`navlinks${open ? ' open' : ''}`} aria-label="Primary navigation">
-            {links.map(([href, label]) => {
-              const active = hydrated && (href === '/' ? pathname === '/' : pathname.startsWith(href));
-              return <Link key={href} className={active ? 'active' : ''} href={href} prefetch onClick={() => setOpen(false)}>{label}</Link>;
-            })}
-          </nav>
-          <Link className="btn btn-gold" href="/contact#quote" prefetch>Request a Quote →</Link>
-          <button className="menu" aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(v => !v)}>☰</button>
-        </div>
-      </header>
-    </>
-  );
+        <Link className="btn gold" href="/contact" onClick={() => setOpen(false)}>Request a Quote</Link>
+        <button className="menu" type="button" aria-expanded={open} onClick={() => setOpen(v => !v)}>Menu</button>
+      </nav>
+    </div></header>
+  </>;
 }

@@ -1,14 +1,2 @@
-import Link from 'next/link';
-
-export default function NotFound() {
-  return (
-    <main className="error-fallback">
-      <div className="container error-fallback-inner">
-        <div className="eyebrow">404</div>
-        <h1>Page not found.</h1>
-        <p>The page you requested does not exist or has moved.</p>
-        <Link className="btn btn-gold" href="/">Return Home →</Link>
-      </div>
-    </main>
-  );
-}
+import Link from "next/link";
+export default function NotFound(){return <main className="section"><div className="container"><div className="quote-box"><div><div className="eyebrow">404</div><h1 className="serif" style={{fontSize:"clamp(3rem,6vw,6rem)",lineHeight:1}}>Page not found.</h1><p className="muted">The page you requested does not exist.</p><Link className="btn gold" href="/">Return Home</Link></div></div></div></main>}

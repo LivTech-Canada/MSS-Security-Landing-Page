@@ -1,11 +1,7 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  poweredByHeader: false,
-  compress: true,
-  images: {
-    formats: ['image/avif', 'image/webp'],
-  },
+  reactStrictMode: true,
 };
 
 export default nextConfig;

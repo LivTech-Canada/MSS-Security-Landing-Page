@@ -1,20 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Footer() {
-  return (
-    <footer className="footer"><div className="container">
-      <div className="footer-grid">
-        <div className="footer-brand">
-          <Image src="/images/mss-logo.png" alt="MSS logo" width={86} height={86} />
-          <h4>Martin&apos;s Security Solutions</h4>
-          <p>Professional security services built around visible presence, mobile response, clear communication and site-specific coverage.</p>
-        </div>
-        <div><h5>Navigation</h5><Link href="/">Home</Link><Link href="/services">Services</Link><Link href="/about">About Us</Link><Link href="/careers">Careers</Link><Link href="/contact">Contact</Link></div>
-        <div><h5>Services</h5><Link href="/services#static">Static Guarding</Link><Link href="/services#mobile">Mobile Patrol</Link><Link href="/services#construction">Construction Security</Link><Link href="/services#concierge">Concierge Security</Link><Link href="/services#event">Event Security</Link></div>
-        <div><h5>Contact</h5><a href="mailto:info@martinssecurity.ca">info@martinssecurity.ca</a><Link href="/contact#quote">Request a Quote</Link><Link href="/contact">Edmonton, Alberta</Link></div>
-      </div>
-      <div className="footer-bottom"><span>© 2026 Martin&apos;s Security Solutions. All rights reserved.</span><span>People • Property • Peace of Mind</span></div>
-    </div></footer>
-  );
+  return <footer className="footer"><div className="container"><div className="footer-grid">
+    <div><Link className="brand" href="/"><img src="/images/logo.png" alt="Martin's Security Services logo" /><div><b>Martin&apos;s Security Services</b><span>Protection • Professionalism • Presence</span></div></Link><p style={{marginTop:16}}>Premium security coverage for residential communities, commercial properties, construction sites, event environments and client-facing spaces.</p></div>
+    <div><h5>Navigate</h5><ul><li><Link href="/">Home</Link></li><li><Link href="/services">Services</Link></li><li><Link href="/about">About Us</Link></li><li><Link href="/careers">Careers</Link></li><li><Link href="/contact">Contact</Link></li></ul></div>
+    <div><h5>Service Areas</h5><ul><li>Static Guarding</li><li>Mobile Patrol</li><li>Construction Security</li><li>Concierge Security</li><li>Event Security</li></ul></div>
+    <div><h5>Client Focus</h5><ul><li>Professional presentation</li><li>Tailored security programs</li><li>Detailed reporting</li><li>Responsive communication</li></ul></div>
+  </div><div className="footer-bottom"><span>© 2026 Martin&apos;s Security Services</span><span>Edmonton, Alberta</span></div></div></footer>;
 }
