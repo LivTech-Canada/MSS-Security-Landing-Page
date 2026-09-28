@@ -30,3 +30,7 @@ Without those email variables, the site still builds and runs, but form submissi
 - `/about`
 - `/careers`
 - `/contact`
+
+
+## Responsive-final update
+This build adds dedicated layouts for phones (320–480), large phones/tablets (481–768), tablets/compact desktop (769–1100), standard laptops/desktops (1101–1440), large desktops (1441–1919), and 1920+/4K displays. Photo assets are optimized to WebP for faster mobile loading. The navigation collapses earlier to avoid crowding, and image aspect ratios/object positions change by breakpoint to prevent awkward crops.
